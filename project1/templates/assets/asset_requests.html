@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+        <h1>My Asset Requests</h1>
+
+        <table border="1">
+            <tr>
+                <th>Asset</th>
+                <th>Status</th>
+                <th>Assigned Asset</th>
+            </tr>
+
+            {% for asset in assets %}
+            <tr>
+                <td>{{ asset.asset_type }}</td>
+                <td>{{ asset.status }}</td>
+                <td>{{ asset.assigned_asset }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <br>
+
+        <a href="{% url 'request_asset' %}">Request Another Asset</a>
+    
+</body>
+</html>

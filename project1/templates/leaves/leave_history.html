@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Leave History</title>
+</head>
+<body>
+
+<h1>My Leave History</h1>
+
+<form method="GET">
+
+    <label>Status:</label>
+
+    <select name="status">
+        <option value="">All</option>
+        <option value="Pending">Pending</option>
+        <option value="Approved">Approved</option>
+        <option value="Rejected">Rejected</option>
+    </select>
+
+    <label>Date:</label>
+
+    <input type="date" name="date">
+
+    <button type="submit">Filter</button>
+
+</form>
+
+<br>
+
+<table border="1">
+    <tr>
+        <th>Leave Type</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Reason</th>
+        <th>Status</th>
+        <th>Action</th>
+    </tr>
+
+    {% for leave in leaves %}
+    <tr>
+        <td>{{ leave.leave_type }}</td>
+        <td>{{ leave.start_date }}</td>
+        <td>{{ leave.end_date }}</td>
+        <td>{{ leave.reason }}</td>
+        <td>{{ leave.status }}</td>
+
+        <td>
+            {% if leave.status == "Pending" %}
+                <a href="{% url 'cancel_leave' leave.id %}">
+                    Cancel
+                </a>
+            {% else %}
+                -
+            {% endif %}
+        </td>
+        <td>
+            {% if leave.status == "Pending" %}
+                <a href="{% url 'approve_leave' leave.id %}">Approve</a>
+                |
+                <a href="{% url 'reject_leave' leave.id %}">Reject</a>
+            {% endif %}
+        </td>
+    </tr>
+
+    {% empty %}
+    <tr>
+        <td colspan="6">No leave requests yet.</td>
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>

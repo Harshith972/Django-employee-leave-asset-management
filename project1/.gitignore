@@ -1,0 +1,22 @@
+# Virtual environment
+venv/
+../venv/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Django
+db.sqlite3
+
+# Uploaded media
+media/
+profile_images/
+
+# Environment variables
+.env
+
+# IDE
+.vscode/
+.idea/

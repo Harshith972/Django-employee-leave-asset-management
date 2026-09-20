@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Assign Asset</h1>
+
+    <p>Employee: {{ asset.user.username }}</p>
+    <p>Asset: {{ asset.asset_type }}</p>
+
+    <form method="post">
+        {% csrf_token %}
+
+        <label>Asset Name / ID:</label>
+        <input type="text" name="assigned_asset">
+
+        <button type="submit">Assign</button>
+    </form>
+    
+</body>
+</html>

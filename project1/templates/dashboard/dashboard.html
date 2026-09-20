@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+
+        .cards {
+            display: flex;
+            gap: 20px;
+        }
+
+        .card {
+            border: 1px solid #ddd;
+            padding: 20px;
+            width: 200px;
+            text-align: center;
+        }
+
+        .card h2 {
+            margin-bottom: 10px;
+        }
+
+        .number {
+            font-size: 30px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Employee Dashboard</h1>
+
+    <div class="cards">
+
+        <div class="card">
+            <h2>Total Employees</h2>
+            <p class="number">{{ total_employees }}</p>
+        </div>
+
+        <div class="card">
+            <h2>Total Leave Requests</h2>
+            <p class="number">{{ total_leave_requests }}</p>
+        </div>
+
+        <div class="card">
+            <h2>Approved Leaves</h2>
+            <p class="number">{{ approved_leaves }}</p>
+        </div>
+
+        <div class="card">
+            <h2>Pending Assets</h2>
+            <p class="number">{{ pending_assets }}</p>
+        </div>
+
+    </div>
+
+</body>
+</html>

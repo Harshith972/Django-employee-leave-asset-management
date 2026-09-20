@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Asset Requests</h1>
+
+    <table border="1">
+        <tr>
+            <th>Employee</th>
+            <th>Asset</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+
+        {% for asset in assets %}
+        <tr>
+            <td>{{ asset.user.username }}</td>
+            <td>{{ asset.asset_type }}</td>
+            <td>{{ asset.status }}</td>
+            <td>
+                {% if asset.status == "Pending" %}
+                    <a href="{% url 'approve_asset' asset.id %}">Approve</a>
+                {% endif %}
+
+                {% if asset.status == "Approved" %}
+                    <a href="{% url 'assign_asset' asset.id %}">Assign</a>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    
+</body>
+</html>

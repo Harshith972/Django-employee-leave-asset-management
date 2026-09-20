@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Request Asset</title>
+</head>
+<body>
+
+<h1>Request Asset</h1>
+
+<form method="post">
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <button type="submit">Request Asset</button>
+</form>
+
+</body>
+</html>
